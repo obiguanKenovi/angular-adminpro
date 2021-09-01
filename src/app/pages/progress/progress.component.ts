@@ -1,16 +1,49 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-progress',
   templateUrl: './progress.component.html',
-  styles: [
+  styleUrls: [
+    './progress.component.css'
   ]
 })
-export class ProgressComponent implements OnInit {
+export class ProgressComponent  {
 
-  constructor() { }
+  
+  progreso1:number=25;
+  progreso2:number=35;
 
-  ngOnInit(): void {
+
+  get getPorcentaje1(){
+    return `${this.progreso1}%`
   }
 
+  get getPorcentaje2(){
+    return `${this.progreso2}%`
+  }
+
+  cambioValorHijo(valor:number){
+    this.progreso1=valor; 
+    
+  }
+/*
+  public progreso:number;
+  constructor() {
+    this.progreso=50
+   }
+
+   get getPorcentaje(){
+     return `${this.progreso}%`
+   }
+
+  sumarValor(valor:number){
+    if(this.progreso<=0 && valor<0)   
+      return this.progreso=0;    
+    if(this.progreso>=100 && valor>0)  
+      return this.progreso=100;
+      
+    return this.progreso=this.progreso+valor;
+  }
+  */
+ 
 }

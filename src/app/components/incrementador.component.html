@@ -1,0 +1,31 @@
+
+<div class="input-group">
+    <span class="input-group-btn">
+      <button (click)="sumarValor(-5)"
+              type="button"             
+               [ngClass]="btnClass"
+              >
+              <!-- class="btn btn-info"-->
+          <i class="fa fa-minus"></i>
+      </button>
+    </span>
+    <input type="number"
+           class="form-control"
+           [ngClass]="{'is-invalid': progreso>100||progreso<0}" 
+           min="0"
+           max="100"                     
+           name="progreso"  
+           [(ngModel)]="progreso" 
+           (ngModelChange)="onChange($event)"
+               
+           />
+    <span class="input-group-btn">
+      <button (click)="sumarValor(5)"           
+              type="button"
+              [ngClass]="btnClass"       
+              >
+              <!-- class="btn btn-primary" -->
+          <i class="fa fa-plus"></i>
+      </button>
+    </span>
+  </div>
