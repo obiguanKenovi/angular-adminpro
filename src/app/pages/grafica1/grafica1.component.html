@@ -1,1 +1,34 @@
-<p>grafica1 works!</p>
+<div class="row">
+    <div class="col-6">
+     Grafica 1
+     <app-dona 
+              title="Dona"            
+              [data]="_data"
+      ></app-dona>
+
+    </div>
+
+    <div class="col-6">
+      Grafica 2
+      <app-dona 
+               title="Dona"
+               [label]="_label1"
+               [data]="_data"
+       ></app-dona>
+ 
+     </div>
+    <!-- <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+              <div style="display: block">
+                  <canvas 
+                    baseChart
+                    [data]="_doughnutChartData"
+                    [labels]="_doughnutChartLabels"
+                    chartType="radar">
+                  </canvas>
+                </div>
+          </div>
+        </div>
+      </div> -->
+  </div>
