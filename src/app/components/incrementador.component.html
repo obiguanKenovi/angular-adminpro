@@ -11,12 +11,15 @@
     </span>
     <input type="number"
            class="form-control"
-           [ngClass]="{'is-invalid': progreso>100||progreso<0}" 
+           [ngClass]="{
+                        'is-invalid': progreso==100 || progreso==0
+                      }"          
            min="0"
            max="100"                     
            name="progreso"  
            [(ngModel)]="progreso" 
            (ngModelChange)="onChange($event)"
+           id="text"
                
            />
     <span class="input-group-btn">

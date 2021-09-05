@@ -12,9 +12,11 @@ export class ProgressComponent  {
   
   progreso1:number=25;
   progreso2:number=35;
+ 
 
 
   get getPorcentaje1(){
+    
     return `${this.progreso1}%`
   }
 

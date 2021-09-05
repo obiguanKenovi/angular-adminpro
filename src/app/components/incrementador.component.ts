@@ -12,7 +12,7 @@ export class IncrementadorComponent implements OnInit {
    @Input('valor') progreso:number;
    @Input() btnClass:string="btn-primary";
    
-
+   
    /* 
     para emitir algo y pasarlo a el componente padre
     debo estar escuchando asi que declaro un evento 
@@ -21,14 +21,13 @@ export class IncrementadorComponent implements OnInit {
    */
 
    /* @Output() eventoValorSalida:EventEmitter<number>=new EventEmitter();*/
-   @Output('valor') eventoValorSalida:EventEmitter<number>=new EventEmitter();
-
+   @Output('emitido') eventoValorSalida:EventEmitter<number>=new EventEmitter();
 
   /*@Input() progreso:number;*/
-
   constructor(){
     this.progreso=0;
   }
+
   ngOnInit(): void {
    
     this.btnClass=`btn ${this.btnClass}`;
@@ -51,26 +50,29 @@ export class IncrementadorComponent implements OnInit {
         this.eventoValorSalida.emit(100);
         return this.progreso=100;
       }
-  
+     console.log('Se emitio el valor -->',this.progreso+numero);
     this.eventoValorSalida.emit(this.progreso+numero);
     return this.progreso=this.progreso+numero;
   }
 
   onChange(numero:number){
+    
+    console.log(`Se disparo el onchange con el valor-> ${numero} y valor de progreso-->${this.progreso}`);
     if(numero>=100)
       {
-       
+       this.eventoValorSalida.emit(this.progreso=100);
         return this.progreso=100;
       }
       if(numero<=0)
       {
-        
+        this.eventoValorSalida.emit(this.progreso=0);
         return this.progreso=0;
       }
-      
-    return this.progreso=this.progreso+numero;
+      console.log('Valor en el input desde onChange-->',this.progreso);
+      this.eventoValorSalida.emit(this.progreso);
+    return this.progreso;
     
-   
+    
 
   }
  
